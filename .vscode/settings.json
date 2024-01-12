@@ -1,0 +1,7 @@
+{
+    "vscode-edge-devtools.browserFlavor": "Default",
+    "files.autoSave": "onWindowChange",
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": "true",
+    "liveServer.settings.ChromeDebuggingAttachment": true,
+    "liveServer.settings.CustomBrowser": "microsoft-edge"
+}
