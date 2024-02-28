@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        </head>
+<body>
+    <p id="clocktext"></p>
+
+    <script>
+    
+    d = new Date();
+    hours = d.getHours();
+    minutes = d.getMinutes();
+    seconds = d.getSeconds();
+    document.getElementById("clocktext").innerHTML = hours+":"+minutes+":"+seconds;
+    
+    </script>
+</body>
+</html>  

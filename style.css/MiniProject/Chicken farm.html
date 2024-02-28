@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Chicken farm </title>
+<style>
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-image: linear-gradient(to right, #66BB6A, #2E7D32);
+}
+
+.tdtop{
+  width:25%;
+  background-color:#404040;
+  border-radius:10px;
+  padding-top:7px;
+  padding-bottom:7px;
+  color:#FAFAFA;
+}
+
+.centeraction{
+  margin-top:50px;
+  margin-bottom:50px;
+  font-size:80px;
+}
+
+.tablebuysel{
+  width:98%;
+  margin-left:1%;
+  border-radius:40px 40px 6px 6px;
+}
+
+th{
+  background-color:#404040;
+  color:#FAFAFA;
+  padding-top:10px;
+  padding-bottom:10px;
+  border-radius:40px 40px 0px 0px;
+  border:1px solid #202020;
+}
+
+.tdprice{
+  width:60%;
+  background-color:#404040;
+  border:1px solid #202020;
+  color:#FAFAFA;
+  padding-top:7px;
+  padding-bottom:7px;
+  padding-left:10px;
+  border-radius:5px;
+}
+
+.tdbuysell{
+  background-color:#404040;
+  border:1px solid #202020;
+  color:#FAFAFA;
+  padding-top:7px;
+  padding-bottom:7px;
+  border-radius:5px;
+}
+
+</style>
+</head>
+<body>
+
+<table width="100%" >
+<tr>
+<td align="center" id="moneyid" class="tdtop" >💲0</td>
+<td align="center" id="chickenid" class="tdtop" >🐓1</td>
+<td align="center" id="storageid" class="tdtop">🛖0</td>
+<td align="center" id="eggid" class="tdtop" >🥚0</td>
+</tr>
+</table>
+
+<marquee align="center" class="centeraction"><big>🐓</big><small>🐤🐥🐣</small></marquee>
+
+<table width="100%" class="tablebuysel" >
+<tr align="center">
+<th>Market</th>
+<th>Prices</th>
+</tr>
+<tr>
+<td class="tdprice">Storage<br><small><font color="#E0E0E0"><i>min. 20 eggs</i></font></small></td>
+<td align="center" class="tdbuysell" onclick="collect()"><font color="green" >Collect</font></td>
+</tr>
+<tr>
+<td class="tdprice" >Eggs<br><small><font color="#E0E0E0"><i>min. 50 eggs</i></font></td>
+<td align="center" class="tdbuysell" onclick="sell()"><font color="green" >Sell</font></td>
+</tr>
+<tr>
+<td class="tdprice">Chicken<br><small><font color="#E0E0E0"><i>Price: 100$</i></font></td>
+<td align="center" class="tdbuysell" onclick="buy()"><font color="green" >Buy</font></td>
+</tr>
+</table>
+
+<script>
+money = 0;
+chicken = 1;
+egg = 0;
+storage = 0;
+setInterval(eggadd, 1000)
+function eggadd()
+{
+  egg+=chicken;
+  document.getElementById("eggid").innerHTML = "🥚"+egg;
+}
+
+function collect()
+{
+  if(egg>=20)
+  {
+    storage+=egg;
+    egg = 0;
+    document.getElementById("storageid").innerHTML = "🛖"+storage;
+    document.getElementById("eggid").innerHTML = "🥚"+egg;
+  }else{
+    alert("A minimum of 20 eggs can be collected.")
+  }
+}
+
+function sell()
+{
+  if(storage>=50)
+  {
+    money+=storage;
+    storage = 0;
+    document.getElementById("moneyid").innerHTML = "💲"+money;
+    document.getElementById("storageid").innerHTML = "🛖"+storage;
+  }else{
+    alert("A minimum of 50 eggs can be sold.")
+  }
+}
+
+function buy()
+{
+  if(money>=100)
+  {
+    chicken++;
+    money-=100;
+    document.getElementById("moneyid").innerHTML = "💲"+money;
+    document.getElementById("chickenid").innerHTML = "🐓"+chicken;
+  }else{
+    alert("Not enough money! Minimum $100 required.")
+  }
+}
+</script>
+
+</body>
+</html>

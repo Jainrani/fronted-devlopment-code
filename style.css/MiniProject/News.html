@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> News</title>
+<style>
+.newstd{
+  border:none;
+  padding:5px 20px;
+  background:#1174A8;
+  color:white;
+}
+
+.newstd2{
+  border:1px solid #B71C1C;
+  border-radius:6px;
+  padding:5px 20px;
+  background:#E53935;
+  color:white;
+}
+
+.newstd3{
+  padding:2px 5px;
+  background:#5D4037;
+  color:white;
+}
+
+.newstxt{
+  background: #f4f4f4;
+  margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<table>
+<tr>
+<td class="newstd" >NEWS</td>
+<td class="newstxt" ><marquee align="center" >Lorem Ipsum is simply dummy text of the printing and typesetting industry.</marquee></td>
+</tr>
+</table>
+
+<br>
+
+<table>
+<tr>
+<td class="newstxt" ><marquee align="center" >Lorem Ipsum is simply dummy text of the printing and typesetting industry.</marquee></td>
+<td class="newstd2" >NEWS</td>
+</tr>
+</table>
+
+<br>
+
+<table>
+<tr>
+<td class="newstd3" >NEWS</td>
+<td class="newstxt" ><marquee align="center" >Lorem Ipsum is simply dummy text of the printing and typesetting industry.</marquee></td>
+<td class="newstd3" id="clock" ></td>
+</tr>
+</table>
+
+<script>
+var today = new Date();
+var date = today.getHours()+":"+today.getMinutes();
+document.getElementById("clock").innerHTML = date;
+</script>
+</body>
+</html>

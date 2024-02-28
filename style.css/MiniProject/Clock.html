@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Clock</title>
+<style>
+
+body{
+  background-image: linear-gradient(to right, #66BB6A, #2E7D32);
+}
+
+.container{
+  display:flex;
+  flex-direction:column;
+  justify-content:evenly;
+  align-items:center;
+}
+
+.sub-container{
+  border-radius:4px;
+  display:flex;
+  justify-content:space-between;
+}
+
+#yearsid{
+font-size:30px;
+  padding:10px 65px 10px 65px;
+  margin-bottom:14px;
+  border:1px solid black;
+  border-radius:6px;
+  background-image: linear-gradient(to right, #66BB6A, #2E7D32);
+}
+
+#hoursid,#minutesid,#secondsid{
+  font-size:30px;
+  padding:10px;
+  margin:0px 7px 0px 7px;
+  border:1px solid black;
+  border-radius:6px;
+  background-image: linear-gradient(to right, #66BB6A, #2E7D32);
+}
+
+</style>
+</head>
+<body onload="clock()">
+
+<div class="container">
+  <h1>Clock</h1>
+  <div id="yearsid"></div>
+  <div class="sub-container">
+    <div id="hoursid"></div>
+    <div id="minutesid"></div>
+    <div id="secondsid"></div>
+  </div>
+</div>
+
+<script>
+
+function clock()
+{
+  const date = new Date();
+  let years = date.getFullYear();
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let seconds = date.getSeconds();
+  
+  minutes = update(minutes);
+  seconds = update(seconds);
+  
+  document.getElementById("yearsid").innerHTML = years;
+  document.getElementById("hoursid").innerHTML = hours;
+  document.getElementById("minutesid").innerHTML = minutes;
+  document.getElementById("secondsid").innerHTML = seconds;
+  setTimeout(clock,1000);
+}
+
+function update(zero)
+{
+  if(zero<10)
+  {
+    zero = "0" + zero;
+  }
+  return zero;
+}
+
+</script>
+</body>
+</html>

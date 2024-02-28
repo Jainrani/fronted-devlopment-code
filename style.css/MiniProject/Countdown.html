@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Countdown</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html, body, .main {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: #ffab40;
+}
+
+.row:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.col {
+  width: 100%;
+  text-align: center;
+}
+
+.box {
+  position: relative;
+  display: inline-table;
+  background: #ff6d00;
+  color: white;
+  width: 90%;
+  height: 400px;
+  margin: 20px 10px;
+  padding: 20px 10px;
+  border-radius: 6px;
+  box-shadow: 3px 3px 6px rgba(0,0,0,.2), 6px 6px 6px rgba(0,0,0,.2);
+}
+
+.box > h1 {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  font-size: 70pt;
+}
+
+.box > h3 {
+  position: absolute;
+  background: #e65100;
+  color: #fff;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.oky{
+  color:white;
+  border:5px solid #e65100;
+  background-color:#ff6d00;
+  margin:20px 20px 20px 20px;
+}
+
+.by{
+  color:white;
+  border:5px solid #e65100;
+  background-color:#ff6d00;
+  margin:20px 20px 20px 20px;
+  padding:20px;
+}
+</style>
+</head>
+<body>
+
+
+<div class="main">
+
+<div class="row">
+
+<h1 class="oky" align="center">Countdown</h1>
+
+<div class="col">
+<div class="box">
+<h1 id="days">•••</h1>
+<h3>Day</h3>
+</div>
+</div>
+
+<div class="col">
+<div class="box">
+<h1 id="hrs">•••</h1>
+<h3>Hours</h3>
+</div>
+</div>
+
+<div class="col">
+<div class="box">
+<h1 id="min">•••</h1>
+<h3>Minutes</h3>
+</div>
+</div>
+
+<div class="col">
+<div class="box">
+<h1 id="sec">•••</h1>
+<h3>Seconds</h3>
+
+</div>
+</div>
+
+</div> <!-- /.col -->
+
+
+<div class="by" >
+
+<br>
+
+<h2>Codeflash</h2>
+
+<pre> 
+Created by: Codeflash
+©2023
+</pre>
+
+</div>
+
+</div> <!-- /.main -->
+
+<script>
+var date, toDate, now;
+
+//Years, Month and Day
+toDate = new Date(2024, 5, 18);
+
+window.onload = function() {
+  setInterval(write, 1000);
+};
+
+function write() {
+  now = dateToJson();
+  $("days").innerHTML = now.days;
+  $("hrs").innerHTML = now.hours;
+  $("min").innerHTML = now.minutes;
+  $("sec").innerHTML = now.seconds;
+}
+
+function dateToJson() {
+  date = new Date();
+  var dif = toDate.getTime() - date.getTime();
+  return {
+    "days": Math.floor(dif / (1000*60*60*24)),
+    "hours": Math.floor((dif / (1000*60*60)) % 24),
+    "minutes": Math.floor((dif / (1000*60)) % 60),
+    "seconds": Math.floor((dif / 1000) % 60)
+  };
+}
+
+/*
+Shorter.
+*/
+
+var $ = function( query ) { return document.querySelector("#"+query); };
+</script>
+</body>
+</html>
